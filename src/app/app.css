@@ -1,0 +1,16 @@
+:root{
+	--bg: #f8fafc;
+	--card: #ffffff;
+	--muted: #6b7280;
+	--accent: #4f46e5;
+	--radius: 12px;
+}
+*{box-sizing:border-box;font-family:Inter,system-ui,Roboto,Arial}
+body,html,#app-root{height:100%}
+.app-shell{padding:1.5rem; background:var(--bg); min-height:100vh}
+.app-header{display:flex;flex-direction:column;gap:0.25rem;margin-bottom:1rem}
+h1{margin:0;font-size:1.25rem}
+.sub{color:var(--muted);font-size:0.9rem;margin:0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start}
+.left,.right{background:var(--card);padding:1rem;border-radius:var(--radius);box-shadow:0 6px 20px rgba(15,23,42,0.06)}
+@media(max-width:900px){.grid{grid-template-columns:1fr;}}

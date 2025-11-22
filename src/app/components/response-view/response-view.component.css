@@ -1,0 +1,7 @@
+:host { display:block; padding:1rem; }
+.meta { display:flex; gap:1rem; margin-bottom:0.5rem; }
+.status strong { color: #0f172a; }
+.time strong { color: #374151; }
+pre { background:#0f172a10; padding:0.8rem; border-radius:8px; overflow:auto; font-family: monospace; }
+.body-pre { white-space: pre-wrap; word-break: break-word; }
+.empty { color:#6b7280; padding:1rem; }

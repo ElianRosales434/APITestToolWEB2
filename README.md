@@ -1,59 +1,129 @@
-# ProyectoFinal
+# API Test Tool (Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.9.
+Aplicación web ligera y minimalista para realizar pruebas de APIs REST mediante solicitudes HTTP reales. Desarrollada con Angular 19+ y basada exclusivamente en HttpClient, sin backend adicional.
 
-## Development server
+## Descripción General
 
-To start a local development server, run:
+API Test Tool permite enviar solicitudes HTTP de tipo GET, POST, PUT, PATCH y DELETE.
+La aplicación muestra en tiempo real:
 
-```bash
-ng serve
-```
+Código de estado HTTP
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Tiempo de respuesta
 
-## Code scaffolding
+Headers devueltos por el servidor
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Cuerpo de respuesta formateado en JSON
 
-```bash
-ng generate component component-name
-```
+El proyecto fue diseñado siguiendo buenas prácticas en arquitectura, separación por componentes y uso de servicios especializados.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Tecnologías Utilizadas
 
-```bash
-ng generate --help
-```
+Angular 19+ (standalone components)
 
-## Building
+TypeScript
 
-To build the project run:
+HttpClient
 
-```bash
-ng build
-```
+RxJS
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Formularios reactivos (FormGroup, FormArray)
 
-## Running unit tests
+SCSS
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Arquitectura modular
 
-```bash
-ng test
-```
+## Estructura del Proyecto
+src/
+ ├── app/
+ │   ├── components/
+ │   │   ├── request-panel/      # Panel de solicitud (URL, método, body, headers)
+ │   │   └── response-view/      # Vista de respuesta HTTP
+ │   ├── core/
+ │   │   └── api.service.ts      # Servicio encargado de enviar solicitudes HTTP
+ │   ├── app.component.ts
+ │   ├── app.component.html
+ │   └── app.component.scss
+ └── styles.scss                 # Estilos globales
 
-## Running end-to-end tests
+## Instalación y Ejecución
+### 1. Clonar el repositorio
+git clone https://github.com/tu-usuario/api-test-tool.git
+cd api-test-tool
 
-For end-to-end (e2e) testing, run:
+### 2. Instalar dependencias
+npm install
 
-```bash
-ng e2e
-```
+### 3. Ejecutar en modo desarrollo
+ng serve -o
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-## Additional Resources
+La aplicación se cargará en:
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+http://localhost:4200
+
+## Uso de la Aplicación
+
+Seleccionar el método HTTP.
+
+Ingresar una URL válida.
+
+Agregar headers personalizados (tantos como sean necesarios).
+
+Si el método lo requiere, ingresar un body en formato JSON.
+
+Presionar el botón “Enviar”.
+
+La vista derecha mostrará:
+
+Código de estado
+
+Tiempo en milisegundos
+
+Headers devueltos
+
+Cuerpo de la respuesta formateado
+
+## Endpoints Recomendados para Pruebas
+Método	URL	Descripción
+GET	https://jsonplaceholder.typicode.com/posts/1
+	Obtiene un recurso
+GET	https://jsonplaceholder.typicode.com/users
+	Lista de usuarios
+POST	https://jsonplaceholder.typicode.com/posts
+	Crea un recurso falso
+PUT	https://jsonplaceholder.typicode.com/posts/1
+	Reemplaza un recurso
+PATCH	https://jsonplaceholder.typicode.com/posts/1
+	Actualización parcial
+DELETE	https://jsonplaceholder.typicode.com/posts/1
+	Elimina un recurso
+
+## Arquitectura de la Solución
+### RequestPanelComponent
+
+Administra el formulario reactivo.
+
+Permite añadir headers mediante un FormArray dinámico.
+
+Convierte el body desde texto a JSON.
+
+Emite un objeto ApiResult al componente padre.
+
+### ApiService
+
+Envía solicitudes HTTP usando HttpClient.
+
+Maneja headers, métodos y cuerpos según corresponda.
+
+Devuelve la respuesta completa del servidor (status, body, headers).
+
+### ResponseViewComponent
+
+Recibe un ApiResult mediante @Input.
+
+Presenta la información formateada y ordenada.
+
+### ApiResult (interfaz)
+
+Abstrae la respuesta en una estructura clara: status, headers, tiempo y body.
