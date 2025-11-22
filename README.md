@@ -86,16 +86,22 @@ Cuerpo de la respuesta formateado
 
 ## Endpoints Recomendados para Pruebas
 Método	URL	Descripción
+
 GET	https://jsonplaceholder.typicode.com/posts/1
 	Obtiene un recurso
+  
 GET	https://jsonplaceholder.typicode.com/users
 	Lista de usuarios
+  
 POST	https://jsonplaceholder.typicode.com/posts
 	Crea un recurso falso
+  
 PUT	https://jsonplaceholder.typicode.com/posts/1
 	Reemplaza un recurso
+  
 PATCH	https://jsonplaceholder.typicode.com/posts/1
 	Actualización parcial
+  
 DELETE	https://jsonplaceholder.typicode.com/posts/1
 	Elimina un recurso
 
